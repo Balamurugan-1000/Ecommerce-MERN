@@ -20,7 +20,7 @@ const store = configureStore({
         favorites: initialFavorites,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
-    devTools: true,
+    devTools: false,
 
 })
 

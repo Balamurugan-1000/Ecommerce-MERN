@@ -6,6 +6,7 @@ import Message from "../components/Message"
 import Product from "./products/Product"
 
 const Home = () => {
+	console.log(process.env.NODE_ENV);
 	const { keyword } = useParams()
 	const { data, isError, isLoading } = useGetProductsQuery({ keyword })
 	return (

@@ -30,6 +30,9 @@ import Order from "./pages/orders/Order.jsx";
 import UserOrder from "./pages/orders/UserOrder.jsx";
 import OrderList from "./pages/admin/OrderList.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import {disableReactDevTools} from '@fvilers/disable-react-devtools'
+if(process.env.NODE_ENV == "production") disableReactDevTools()
+
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<App />}>

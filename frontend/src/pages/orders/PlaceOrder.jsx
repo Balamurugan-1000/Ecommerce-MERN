@@ -86,8 +86,7 @@ const PlaceOrder = () => {
 								))}
 
 
-								{/* {error && <Message varient={`danger`}>{error}</Message>} */}
-								{/* console.log(error) */}
+								{error && <Message varient={`danger`}>{error}</Message>}
 							</tbody>
 						</table >
 						{isLoading && <Loader />}

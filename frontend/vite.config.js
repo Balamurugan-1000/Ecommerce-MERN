@@ -7,9 +7,9 @@ export default defineConfig({
   "server": {
     proxy: {
 
-      "/api/": "http://localhost:5000",
-      "/uploads/": "http://localhost:5000/api/",
-      "/api/product": "http://localhost:5000/product",
+      "/api/": "https:sample-ecommerce-app.onrender.com",
+      "/uploads/": "https:sample-ecommerce-app.onrender.com/api/",
+      "/api/product": "https:sample-ecommerce-app.onrender.com/product",
     }
   }
 })

@@ -10,7 +10,6 @@ const OrderList = () => {
 	useEffect(() => {
 		refetch()
 	}, [orders])
-	console.log(orders);
 	return (
 		<div>
 			<AdminMenu />
