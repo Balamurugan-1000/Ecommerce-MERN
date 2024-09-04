@@ -6,14 +6,13 @@ import Message from "../components/Message"
 import Product from "./products/Product"
 
 const Home = () => {
-	console.log(process.env.NODE_ENV);
 	const { keyword } = useParams()
 	const { data, isError, isLoading } = useGetProductsQuery({ keyword })
 	return (
 		<>
 			{!keyword ? <Header /> : null}
-			{isLoading ? <Loader /> : isError ? <Message varient={danger} >
-				{isError?.data.message || isError.message}
+			{isLoading ? <Loader /> : isError ? <Message varient="danger" >
+				{isError?.data?.message || isError?.message || "an error occured please try again"}
 			</Message> : (
 				<>
 					<div className="flex items-center mt-[5rem] justify-between">

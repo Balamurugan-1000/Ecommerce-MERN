@@ -10,6 +10,7 @@ const Shop = () => {
 
 	const dispatch = useDispatch()
 	const { categories, products, checked, radio } = useSelector((state) => state.shop)
+	console.log(categories);
 	const categoriesQuery = useFetchCategoriesQuery()
 	const [maxPriceFilter, setMaxPriceFilter] = useState('')
 	const [minpriceFilter, setMinPriceFilter] = useState('')
@@ -22,9 +23,9 @@ const Shop = () => {
 	}, [categoriesQuery.data, dispatch])
 
 	useEffect(() => {
-		if (!checked.length || !radio.length) {
+		if (!checked?.length || !radio?.length) {
 			if (!filteredProductsQuery.isLoading) {
-				const filteredProducts = filteredProductsQuery.data.filter((product) => {
+				const filteredProducts = filteredProductsQuery?.data?.filter((product) => {
 					return (
 						(!maxPriceFilter || product.price < maxPriceFilter) && (!minpriceFilter || product.price > minpriceFilter)
 					)
@@ -59,7 +60,6 @@ const Shop = () => {
 	const handleMinPriceChange = e => {
 		setMinPriceFilter(e.target.value)
 	}
-
 
 	return (
 		<>
@@ -127,7 +127,7 @@ const Shop = () => {
 					<div className="p-3">
 						<h2 className="mb-2 font-bold text-center text-coral-red">{products?.length} Products  <span className="text-slate-gray">Available for shopping</span></h2>
 						<div className="flex flex-wrap gap-10">
-							{products.length === 0 ? (
+							{products?.length === 0 ? (
 								<Loader />
 							) : (
 								products?.map((p) => (

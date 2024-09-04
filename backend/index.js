@@ -8,11 +8,30 @@ import productRoutes from './routes/productRoutes.js'
 import connectDb from "./config/db.js";
 import uploadRoutes from './routes/uploadRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
+import cors from 'cors'
 dotenv.config()
 
+
+const allowedOrigins = [
+    'https:sample-ecommerce-app.onrender.com',
+    'http://localhost:5173'
+];
+const app = express()
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.indexOf(origin) === -1) {
+            const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+            return callback(new Error(msg), false);
+        }
+
+        return callback(null, true);
+    }
+}));
 const port = process.env.PORT;
 connectDb()
-const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
